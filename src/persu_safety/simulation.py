@@ -15,7 +15,6 @@ from inspect_ai.scorer import (
     Metric,
     SampleScore,
     Score,
-    Scorer,
     Target,
     accuracy,
     metric,
@@ -25,6 +24,7 @@ from inspect_ai.scorer import (
 from inspect_ai.solver import Generate, TaskState, solver
 
 from persu_safety.dataset import get_simulation_dataset
+from persu_safety.scorers import persuasiveness_scorer, strategy_scorer
 
 
 def update_system_prompt(system_prompt: str, state: AgentState) -> None:
@@ -136,7 +136,7 @@ def simulation_solver(num_turns: int = 15, max_persuasion_attempts: int = 3) -> 
 
         persuasion_attempt = 0
         final_state = "n/a"
-        decision_list = []
+        decision_list = [None] * num_turns
         for i in range(num_turns):
             pers_output = await persuader.generate(persuader_msgs)
             persuader_msg = pers_output.completion
@@ -182,6 +182,6 @@ def simulation_task(
         dataset=dataset,
         solver=simulation_solver(num_turns=num_turns, max_persuasion_attempts=max_persuasion_attempts),
         model_roles={"persuader": persuader_model, "persuadee": persuadee_model},
-        config=GenerateConfig(max_tokens=200, temperature=1.0),
+        config=GenerateConfig(max_tokens=400, temperature=1.0),
         scorer=[acceptance_scorer(), refusal_scorer(persuadee_model), persuasiveness_scorer(persuader_model), strategy_scorer(persuader_model)],
     )
