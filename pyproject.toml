@@ -116,7 +116,7 @@ ignore_missing_imports = true
 [project]
 name = "inspect-eval-template"
 description = "Template for Inspect AI evaluations"
-authors = [{ name = "Your Name" }]
+authors = [{ name = "Tsimur Hadeliya" }]
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
