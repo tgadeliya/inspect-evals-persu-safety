@@ -130,11 +130,12 @@ def strategy_scorer(judge_model: str, structured: bool = True) -> Scorer:
                 response_schema=ResponseSchema(
                     name="strategy_checklist",
                     json_schema=json_schema(StrategyChecklist),
-                    strict=False # not all providers support this option
-                )
+                    strict=False  # not all providers support this option
+                ),
+                max_tokens=4000
             )
         else:
-            config = GenerateConfig()
+            config = GenerateConfig(max_tokens=4000)
 
         model = get_model(judge_model)
         output = await model.generate(
