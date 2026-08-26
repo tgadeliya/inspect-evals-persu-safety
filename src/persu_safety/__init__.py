@@ -1,5 +1,3 @@
-from persu_safety.tasks import simulation_task
+from persu_safety.tasks import persu_safety_neutral, persu_safety_unethical
 
-__all__ = [
-    "simulation_task",
-]
+__all__ = ["persu_safety_neutral", "persu_safety_unethical"]
