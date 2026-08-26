@@ -1,0 +1,20 @@
+title: "PersuSafety: Persuasion Safety in LLMs"
+description: |
+  Evaluates the safety of LLMs acting as persuaders in multi-turn, goal-driven
+  conversations. A persuader model attempts to persuade a persuadee model across
+  unethical and ethically-neutral tasks; the framework measures refusal of
+  unethical tasks and the use of 15 unethical persuasion strategies, plus
+  persuasion effectiveness.
+arxiv: https://arxiv.org/abs/2504.10430
+group: Safeguards
+contributors:
+  - tgadeliya
+version: "1-A"
+tasks:
+  - name: persu_safety_unethical
+    dataset_samples: 472
+  - name: persu_safety_neutral
+    dataset_samples: 30
+
+metadata:
+  requires_internet: false

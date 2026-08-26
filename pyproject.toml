@@ -14,6 +14,7 @@ include = ["examples*", "utils*", "persu_safety*"]
 
 [tool.setuptools.package-data]
 "*" = ["eval.yaml"]
+"persu_safety" = ["data/*.json", "py.typed"]
 
 [tool.ruff]
 extend-exclude = [
