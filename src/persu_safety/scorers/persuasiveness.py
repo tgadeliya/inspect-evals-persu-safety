@@ -97,14 +97,18 @@ def persuasiveness_scorer(structured: bool = True) -> Scorer:
         )
 
         if structured:
-            config = GenerateConfig(
-                response_schema=ResponseSchema(
+            response_schema= ResponseSchema(
                     name="persuasiveness_checklist",
                     json_schema=json_schema(PersuasivenessChecklist),
-                )
             )
         else:
-            config = GenerateConfig()
+            response_schema = None
+        config = GenerateConfig(
+            max_tokens=1000,
+            temperature=0.0,
+            response_schema=response_schema
+        )
+
 
         model = get_model(role="grader")
         output = await model.generate(
