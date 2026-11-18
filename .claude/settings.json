@@ -7,7 +7,10 @@
       "Bash(uv run ruff:*)",
       "Bash(uv run inspect:*)",
       "Bash(uv run pytest:*)",
-      "Bash(uv run mypy:*)"
+      "Bash(uv run basedpyright:*)",
+      "Bash(uv run inspect-evals-lint:*)",
+      "Bash(uv run inspect-evals-readmes:*)",
+      "Bash(make test:*)"
     ],
     "deny": [
       "Bash(git push origin main)"
@@ -15,5 +18,17 @@
     "ask": [
       "Bash(rm:*)"
     ]
+  },
+  "extraKnownMarketplaces": {
+    "generality": {
+      "source": {
+        "source": "github",
+        "repo": "Generality-Labs/agent-skills",
+        "ref": "v1.0.1"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "inspect-evals@generality": true
   }
 }

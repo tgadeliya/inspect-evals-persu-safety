@@ -1,4 +1,3 @@
-
 from inspect_ai.model import (
     ChatMessage,
     ChatMessageAssistant,

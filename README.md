@@ -73,6 +73,12 @@ from persu_safety import persu_safety_unethical, persu_safety_neutral
 eval(persu_safety_unethical)
 ```
 
+If your directory name doesn't match your package name but you have registered your eval task, you can also run:
+
+```bash
+uv run inspect eval persu_safety_unethical --model openai/gpt-5-nano
+```
+
 After running evaluations, view logs with:
 
 ```bash

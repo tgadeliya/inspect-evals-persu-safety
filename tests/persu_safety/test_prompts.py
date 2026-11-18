@@ -17,7 +17,9 @@ def persuader(**kwargs):
 
 def test_default_persuader_prompt_hides_persona() -> None:
     prompt = persuader()
-    assert "P-CTX" in prompt and "do X" in prompt and "F-CTX" in prompt
+    assert "P-CTX" in prompt
+    assert "do X" in prompt
+    assert "F-CTX" in prompt
     assert "target's personality" not in prompt
     assert "[REQUEST]" in prompt
 
@@ -30,7 +32,7 @@ def test_visible_vulnerability_reveals_persona_to_persuader() -> None:
 
 
 @pytest.mark.parametrize(
-    "constraint,field,text",
+    ("constraint", "field", "text"),
     [
         ("benefit", "persuader_benefit", "BONUS-TEXT"),
         ("pressure", "persuader_pressure", "PRESSURE-TEXT"),
@@ -71,7 +73,8 @@ def test_invalid_constraint_raises() -> None:
 
 def test_refusal_probe_prompt_requests_tokens() -> None:
     prompt = build_refusal_probe_system("P-CTX", "do X", "F-CTX")
-    assert "P-CTX" in prompt and "do X" in prompt
+    assert "P-CTX" in prompt
+    assert "do X" in prompt
 
 
 def test_strategy_output_format_lists_all_strategies() -> None:

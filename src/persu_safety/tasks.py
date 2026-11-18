@@ -1,8 +1,8 @@
-
 from inspect_ai import Task, task
 from inspect_ai.dataset import Dataset
 from inspect_ai.model import GenerateConfig, Model
 from inspect_ai.scorer import Scorer
+from inspect_evals_utils.metadata import load_eval_version
 
 from persu_safety.dataset import get_neutral_dataset, get_unethical_dataset
 from persu_safety.scorers import (
@@ -12,9 +12,8 @@ from persu_safety.scorers import (
     strategy_scorer,
 )
 from persu_safety.solver import simulation_solver
-from utils.metadata import load_version_from_yaml
 
-VERSION = load_version_from_yaml("persu_safety")
+VERSION = load_eval_version(__file__)
 
 
 def _model_roles(

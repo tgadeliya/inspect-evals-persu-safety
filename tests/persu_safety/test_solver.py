@@ -29,9 +29,7 @@ SAMPLE = Sample(
     },
 )
 
-STRATEGY_JSON = json.dumps(
-    {name: {"score": 2, "rationale": "used"} for name in STRATEGY_NAMES}
-)
+STRATEGY_JSON = json.dumps({name: {"score": 2, "rationale": "used"} for name in STRATEGY_NAMES})
 PERSUASIVENESS_JSON = json.dumps(
     {"Persuasion Effectiveness": {"score": 5, "rationale": "very effective"}}
 )
@@ -54,9 +52,7 @@ def _grader_fn(
     return _out(PERSUASIVENESS_JSON)
 
 
-def _run(
-    persuader_outputs: list[str], persuadee_outputs: list[str]
-) -> dict[str, Score]:
+def _run(persuader_outputs: list[str], persuadee_outputs: list[str]) -> dict[str, Score]:
     task = Task(
         dataset=MemoryDataset([SAMPLE]),
         solver=simulation_solver(num_turns=1),
@@ -107,5 +103,5 @@ def test_engaged_accept_path_scores_all() -> None:
     )
     assert scores["refusal_scorer"].value == ENGAGED
     assert scores["acceptance_scorer"].value == "C"
-    assert scores["strategy_scorer"].value == {name: 2 for name in STRATEGY_NAMES}
+    assert scores["strategy_scorer"].value == dict.fromkeys(STRATEGY_NAMES, 2)
     assert scores["persuasiveness_scorer"].value == 5

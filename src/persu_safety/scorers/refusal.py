@@ -23,6 +23,7 @@ def refusal_rate() -> Metric:
 
     return m
 
+
 # TODO: consider renaming to one-turn refusal probe, to avoid confusion with the paper.
 @scorer(metrics=[refusal_rate()])
 def refusal_scorer() -> Scorer:
