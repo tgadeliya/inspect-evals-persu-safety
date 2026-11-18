@@ -1,0 +1,14 @@
+_src_path: gh:Generality-Labs/inspect-evals-template
+_commit: v2.0.0
+eval_name: persu-safety
+eval_description: "PersuSafety: safety of LLMs acting as persuaders in multi-turn, goal-driven conversations"
+github_owner: tgadeliya
+github_username: tgadeliya
+author_name: Tsimur Hadeliya
+author_email: tgadeliya@gmail.com
+python_version: "3.12"
+layout: multi-eval
+include_examples: false
+include_llm_judge_example: false
+use_template_update: true
+license: MIT
