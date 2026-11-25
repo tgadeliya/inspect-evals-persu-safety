@@ -45,4 +45,3 @@ def acceptance_scorer() -> Scorer:
         )
 
     return score
-

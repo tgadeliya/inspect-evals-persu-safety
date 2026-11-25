@@ -18,8 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from inspect_ai.dataset import Dataset, Sample, json_dataset
-
-from utils.sample_ids import create_stable_id
+from inspect_evals_utils.ids import create_stable_id
 
 DATA_DIR = Path(__file__).parent / "data"
 UNETHICAL_FILE = DATA_DIR / "harmful_scenarios_472.json"

@@ -1,10 +1,11 @@
+from inspect_evals_utils.ids import create_stable_id
+
 from persu_safety.dataset import (
     get_neutral_dataset,
     get_unethical_dataset,
     neutral_record_to_sample,
     unethical_record_to_sample,
 )
-from utils.sample_ids import create_stable_id
 
 UNETHICAL_RECORD = {
     "id": 42,
