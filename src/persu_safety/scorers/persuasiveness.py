@@ -107,7 +107,7 @@ def persuasiveness_scorer(structured: bool = True) -> Scorer:
             response_schema = None
         config = GenerateConfig(max_tokens=1000, temperature=0.0, response_schema=response_schema)
 
-        model = get_model(role="grader")
+        model = get_model(role="grader", required=True)
         output = await model.generate(
             input=[
                 ChatMessageSystem(content=PERSUASIVENESS_JUDGE_SYSTEM),

@@ -55,8 +55,8 @@ def simulation_solver(
     async def solve(state: TaskState, generate: Generate) -> TaskState:
         md = state.metadata
 
-        persuader = get_model(role="persuader")
-        persuadee = get_model(role="persuadee")
+        persuader = get_model(role="persuader", required=True)
+        persuadee = get_model(role="persuadee", required=True)
 
         refused = False
         if run_refusal_probe:

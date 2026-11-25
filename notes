@@ -1,0 +1,7 @@
+
+
+1) Change to literals values for personality in the task builder
+2) Decide how to handle  non REJECT/ACCEPT response in scorers
+3) Add checking for the wrong parsing into scorers
+4) Fix problems with NOANSWER
+5) Unable to convert value to float: engaged    
