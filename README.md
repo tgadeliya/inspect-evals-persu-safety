@@ -45,9 +45,21 @@ Each task uses three [model roles](https://inspect.aisi.org.uk/models.html#model
 - `persuadee`: the simulated target of the persuasion.
 - `grader`: the LLM judge for strategy use and persuasion effectiveness.
 
-Set them with `--model-role` (e.g. `--model-role persuader=openai/gpt-4o`) or
-with the `persuader_model` / `persuadee_model` / `grader_model` task
-parameters. Any role that isn't set falls back to `--model`.
+All three roles are required. Set them with `--model-role` or with the
+`persuader_model` / `persuadee_model` / `grader_model` task parameters:
+
+```bash
+uv run inspect eval persu_safety/persu_safety_unethical \
+  --model-role persuader=openai/gpt-5-nano \
+  --model-role persuadee=openai/gpt-5-nano \
+  --model-role grader=openai/gpt-5-nano
+```
+
+`--model` alone does not fill the roles: a run without them stops with
+`Model role 'persuader' is required and was not specified.` This keeps one model
+from silently playing every part and grading its own conversations. The
+generated Usage and Options sections below show `--model` only; add the three
+`--model-role` arguments to those commands.
 
 <!-- Usage: Automatically Generated -->
 ## Usage
